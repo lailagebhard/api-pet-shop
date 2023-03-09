@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="icon" type="image/x-icon" href="/img/pet-fav-icon.png">
+    <title>Pet Shop</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand"><img src="/img/pet-logo.png" width="90px"></a>
+            <div class="d-flex flex-row">
+            </div>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Nome do pet..." id="search-input" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" id="search-button">Pesquisar</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Form for registering pet -->
+    <div class="container">
+        <h3 class="py-4">CADASTRAR PET</h3>
+        <form action="" id="registerForm">
+
+            <div class="row mb-2">
+                <div class="col">
+                    <input type="text" class="form-control petName" placeholder="Nome do pet" aria-label="petName">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control species" placeholder="Espécie" aria-label="species">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control breed" placeholder="Raça" aria-label="breed">
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col">
+                    <select class="form-select gender" aria-label="gender">
+                        <option selected>Sexo</option>
+                        <option value="F">F</option>
+                        <option value="M">M</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select size" aria-label="size">
+                        <option selected>Porte</option>
+                        <option value="Pequeno">Pequeno</option>
+                        <option value="Médio">Médio</option>
+                        <option value="Grande">Grande</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control fur" placeholder="Pelagem" aria-label="fur">
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control tutorName" placeholder="Nome do tutor"
+                        aria-label="tutorName">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control tutorPhone" placeholder="Telefone do tutor"
+                        aria-label="tutorPhone">
+                </div>
+                <div class="col">
+                    <select class="form-select petService" aria-label="petService">
+                        <option selected>Serviço</option>
+                        <option value="BANHO">Banho</option>
+                        <option value="TOSA">Tosa</option>
+                        <option value="BANHO_E_TOSA">Banho e tosa</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn btn-success my-3">Adicionar Pet</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- For showing pet's data -->
+    <div class="container mb-5">
+        <h3 class="py-4">PETS CADASTRADOS</h3>
+
+        <table class="table tstyle" id="petsTable">
+            <thead style="background-color: #C9F2C7;">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome do pet</th>
+                    <th scope="col">Espécie</th>
+                    <th scope="col">Raça</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Porte</th>
+                    <th scope="col">Pelagem</th>
+                    <th scope="col">Nome do tutor</th>
+                    <th scope="col">Telefone do tutor</th>
+                    <th scope="col">Serviço</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="bg-light">
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal for editing pet -->
+    <div id="modalWindow" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Editar Pet</h3>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div id="editForm">
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <input type="text" class="form-control petName" placeholder="Nome do pet"
+                                        aria-label="petName">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control species" placeholder="Espécie"
+                                        aria-label="species">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control breed" placeholder="Raça" aria-label="breed">
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <select class="form-select gender" aria-label="gender">
+                                        <option selected>Sexo</option>
+                                        <option value="F">F</option>
+                                        <option value="M">M</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <select class="form-select size" aria-label="size">
+                                        <option selected>Porte</option>
+                                        <option value="Pequeno">Pequeno</option>
+                                        <option value="Médio">Médio</option>
+                                        <option value="Grande">Grande</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control fur" placeholder="Pelagem" aria-label="fur">
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control tutorName" placeholder="Nome do tutor"
+                                        aria-label="tutorName">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control tutorPhone" placeholder="Telefone do tutor"
+                                        aria-label="tutorPhone">
+                                </div>
+                                <div class="col">
+                                    <select class="form-select petService" aria-label="petService">
+                                        <option selected>Serviço</option>
+                                        <option value="BANHO">Banho</option>
+                                        <option value="TOSA">Tosa</option>
+                                        <option value="BANHO_E_TOSA">Banho e tosa</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-success my-3" data-bs-dismiss="modal">Fechar</button>
+                        <button class="btn btn-success my-3">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
